@@ -6,10 +6,20 @@ void Glucometer::CheckGlucoseLevel()
 {
 	if (GlucoseLevel.read() >= 120)
 	{
-		H_ind.write(1);
+		SignalHighGLevel();
 	}
 	else if (GlucoseLevel.read() < 80)
 	{
-		L_ind.write(1);
+		SignalLowGLevel();
 	}
+}
+
+void Glucometer::SignalHighGLevel()
+{
+	H_ind.write(1);
+}
+
+void Glucometer::SignalLowGLevel()
+{
+	L_ind.write(1);
 }
