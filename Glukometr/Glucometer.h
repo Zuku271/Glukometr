@@ -20,6 +20,8 @@ SC_MODULE(Glucometer)
 	sc_out <sc_uint<16>> DispGlucoseLevel;
 
 	void CheckGlucoseLevel();
+	void SignalHighGLevel();
+	void SignalLowGLevel();
 
 	SC_CTOR(Glucometer)
 	{

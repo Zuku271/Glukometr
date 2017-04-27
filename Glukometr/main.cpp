@@ -7,15 +7,34 @@
 
 int sc_main(int argc, char* argv[])
 {
+<<<<<<< HEAD
 	sc_signal <bool> clock, reset;
 
 	sc_signal <sc_uint<16>> GlucoseLevel;
+=======
+	//sc_signal <bool> c_up, c_down;
+	sc_signal <bool> enable, clock, reset;
+	sc_signal <sc_uint<16>> GlucoseLevel;
+	sc_signal <sc_uint<16>> InsulineLevelToInject;
+	
+	sc_signal <sc_uint<8>> input;
+>>>>>>> 255244d3115c9f71dd2350f4595eebc0fe98c3cd
 	int i;
 
 	/**
 	* Connect to DUT
 	*/
+<<<<<<< HEAD
 	Glucometer glk("Glucometer");
+=======
+	counter FirstCounter("Counter");
+	Glucometer glk("Glucometer");
+
+	glk.clock(clock);
+	glk.reset(reset);
+	glk.GlucoseLevel(GlucoseLevel);
+	glk.InsulineLevelToInject(InsulineLevelToInject);
+>>>>>>> 255244d3115c9f71dd2350f4595eebc0fe98c3cd
 
 	glk.clock(clock);
 	glk.reset(reset);
@@ -25,6 +44,7 @@ int sc_main(int argc, char* argv[])
 	sc_trace_file *wf = sc_create_vcd_trace_file("glucose");
 	// Dump the desired signals
 	sc_trace(wf, clock, "clock");
+<<<<<<< HEAD
 	
 
 	// Initialize all variables
@@ -34,6 +54,19 @@ int sc_main(int argc, char* argv[])
 
 	for (i = 0; i < 5; i++)
 	{
+=======
+	sc_trace(wf, reset, "reset");
+	sc_trace(wf, enable, "GlucoseLevel");
+	sc_trace(wf, input, "InsulineLevelToInject");
+
+	// Initialize all variables
+	reset = 1;       // initial value of reset
+	enable = 0;      // initial value of enable
+	GlucoseLevel = 40;
+	InsulineLevelToInject = 10;
+	
+	for (i = 0; i<5; i++) {
+>>>>>>> 255244d3115c9f71dd2350f4595eebc0fe98c3cd
 		clock = 0;
 		sc_start();
 		clock = 1;
@@ -57,6 +90,26 @@ int sc_main(int argc, char* argv[])
 		clock = 1;
 		sc_start();
 	}
+
+
+	/*----*/
+	cout << "@" << sc_time_stamp() << " Asserting GlucoseLevel\n" << endl;
+	GlucoseLevel = 500;
+	for (i = 0; i<10; i++) {
+		clock = 0;
+		sc_start();
+		clock = 1;
+		sc_start();
+	}
+	GlucoseLevel = 10;    // De-assert Glucose Level
+	cout << "@" << sc_time_stamp() << " De-Asserting GlucoseLevel\n" << endl;
+	for (i = 0; i<5; i++) {
+		clock = 0;
+		sc_start();
+		clock = 1;
+		sc_start();
+	}
+	/*----*/
 
 
 	cout << "@" << sc_time_stamp() << " Terminating simulation\n" << endl;
