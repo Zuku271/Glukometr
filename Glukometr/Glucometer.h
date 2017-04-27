@@ -1,5 +1,3 @@
-#pragma once
-
 #include <systemc.h>
 
 SC_MODULE(Glucometer)
@@ -29,4 +27,3 @@ SC_MODULE(Glucometer)
 		reset_signal_is(reset, true);
 	}
 };
-
