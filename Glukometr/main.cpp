@@ -1,13 +1,16 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <systemc.h>
 #include "counter.h"
+#include "Glucometer.h"
 
 
 int sc_main(int argc, char* argv[])
 {
-	sc_signal <bool> c_up, c_down;
+	//sc_signal <bool> c_up, c_down;
 	sc_signal <bool> enable, clock, reset;
-
+	sc_signal <sc_uint<16>> GlucoseLevel;
+	sc_signal <sc_uint<16>> InsulineLevelToInject;
+	
 	sc_signal <sc_uint<8>> input;
 	int i;
 
@@ -15,28 +18,26 @@ int sc_main(int argc, char* argv[])
 	* Connect to DUT
 	*/
 	counter FirstCounter("Counter");
+	Glucometer glk("Glucometer");
 
-	FirstCounter.c_up(c_up);
-	FirstCounter.c_down(c_down);
-	FirstCounter.enable(enable);
-	FirstCounter.clk(clock);
-	FirstCounter.reset(reset);
-
-	FirstCounter.out(input);
+	glk.clock(clock);
+	glk.reset(reset);
+	glk.GlucoseLevel(GlucoseLevel);
+	glk.InsulineLevelToInject(InsulineLevelToInject);
 
 	// Open VCD file
-	sc_trace_file *wf = sc_create_vcd_trace_file("counter");
+	sc_trace_file *wf = sc_create_vcd_trace_file("glucose");
 	// Dump the desired signals
 	sc_trace(wf, clock, "clock");
 	sc_trace(wf, reset, "reset");
-	sc_trace(wf, enable, "enable");
-	sc_trace(wf, input, "count");
+	sc_trace(wf, enable, "GlucoseLevel");
+	sc_trace(wf, input, "InsulineLevelToInject");
 
 	// Initialize all variables
 	reset = 1;       // initial value of reset
 	enable = 0;      // initial value of enable
-	c_up = 1;
-	c_down = 0;
+	GlucoseLevel = 40;
+	InsulineLevelToInject = 10;
 	
 	for (i = 0; i<5; i++) {
 		clock = 0;
@@ -70,6 +71,26 @@ int sc_main(int argc, char* argv[])
 	}
 	cout << "@" << sc_time_stamp() << " De-Asserting Enable\n" << endl;
 	enable = 0; // De-assert enable
+
+	/*----*/
+	cout << "@" << sc_time_stamp() << " Asserting GlucoseLevel\n" << endl;
+	GlucoseLevel = 500;
+	for (i = 0; i<10; i++) {
+		clock = 0;
+		sc_start();
+		clock = 1;
+		sc_start();
+	}
+	GlucoseLevel = 10;    // De-assert Glucose Level
+	cout << "@" << sc_time_stamp() << " De-Asserting GlucoseLevel\n" << endl;
+	for (i = 0; i<5; i++) {
+		clock = 0;
+		sc_start();
+		clock = 1;
+		sc_start();
+	}
+	/*----*/
+
 
 	cout << "@" << sc_time_stamp() << " Terminating simulation\n" << endl;
 	sc_close_vcd_trace_file(wf);
