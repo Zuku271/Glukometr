@@ -1,5 +1,5 @@
 $date
-     Apr 27, 2017       17:55:07
+     May 23, 2017       01:19:12
 $end
 
 $version
@@ -12,6 +12,9 @@ $end
 
 $scope module SystemC $end
 $var wire    1  aaaaa  clock       $end
+$var wire    1  aaaab  reset       $end
+$var wire    1  aaaac  GlucoseLevel       $end
+$var wire   16  aaaad  InsulineLevelToInject [15:0]  $end
 $upscope $end
 $enddefinitions  $end
 
@@ -21,7 +24,102 @@ $end
 
 $dumpvars
 0aaaaa
+1aaaab
+0aaaac
+b1010 aaaad
 $end
+
+#0
+1aaaaa
+
+#0
+0aaaaa
+
+#0
+1aaaaa
+
+#0
+0aaaaa
+
+#0
+1aaaaa
+
+#0
+0aaaaa
+
+#0
+1aaaaa
+
+#0
+0aaaaa
+
+#0
+1aaaaa
+
+#0
+0aaaaa
+0aaaab
+
+#0
+1aaaaa
+
+#0
+0aaaaa
+
+#0
+1aaaaa
+
+#0
+0aaaaa
+
+#0
+1aaaaa
+
+#0
+0aaaaa
+
+#0
+1aaaaa
+
+#0
+0aaaaa
+
+#0
+1aaaaa
+
+#0
+0aaaaa
+
+#0
+1aaaaa
+
+#0
+0aaaaa
+
+#0
+1aaaaa
+
+#0
+0aaaaa
+
+#0
+1aaaaa
+
+#0
+0aaaaa
+
+#0
+1aaaaa
+
+#0
+0aaaaa
+
+#0
+1aaaaa
+
+#0
+0aaaaa
+1aaaab
 
 #0
 1aaaaa

@@ -8,31 +8,32 @@
 int sc_main(int argc, char* argv[])
 {
 	sc_signal <bool> clock, reset, enable;
+	sc_signal <bool> H_ind, L_ind;
+	sc_signal <bool> RunPump;
 
 	sc_signal <sc_uint<16>> GlucoseLevel;
-
-	//sc_signal <bool> c_up, c_down;
-	sc_signal <sc_uint<16>> _GlucoseLevel;
 	sc_signal <sc_uint<16>> InsulineLevelToInject;
+	sc_signal <sc_uint<16>> DispGlucoseLevel;
 	
-	sc_signal <sc_uint<8>> input;
+	sc_signal <sc_uint<8>> InsulineLevel;
 
-	int i;
 
 	/**
 	* Connect to DUT
 	*/
 
 	Glucometer glk("Glucometer");
-	//counter FirstCounter("Counter");
 
 	glk.GlucoseLevel(GlucoseLevel);
 	glk.InsulineLevelToInject(InsulineLevelToInject);
-
-
 	glk.clock(clock);
 	glk.reset(reset);
-	glk.GlucoseLevel(GlucoseLevel);
+	glk.H_ind(H_ind);
+	glk.L_ind(L_ind);
+	glk.RunPump(RunPump);
+	glk.DispGlucoseLevel(DispGlucoseLevel);
+	glk.InsulineLevel(InsulineLevel);
+
 	
 	// Open VCD file
 	sc_trace_file *wf = sc_create_vcd_trace_file("glucose");
@@ -46,13 +47,9 @@ int sc_main(int argc, char* argv[])
 	clock = 0;
 	GlucoseLevel = 100;
 
-	for (i = 0; i < 5; i++)
-	{
-	}
-
 	sc_trace(wf, reset, "reset");
 	sc_trace(wf, enable, "GlucoseLevel");
-	sc_trace(wf, input, "InsulineLevelToInject");
+	sc_trace(wf, InsulineLevelToInject, "InsulineLevelToInject");
 
 	// Initialize all variables
 	reset = 1;       // initial value of reset
@@ -60,8 +57,8 @@ int sc_main(int argc, char* argv[])
 	GlucoseLevel = 40;
 	InsulineLevelToInject = 10;
 	
-	for (i = 0; i<5; i++) {
-
+	for (int i = 0; i<5; i++)
+	{
 		clock = 0;
 		sc_start();
 		clock = 1;
@@ -69,7 +66,7 @@ int sc_main(int argc, char* argv[])
 	}
 	reset = 0;    // Assert the reset
 	cout << "@" << sc_time_stamp() << " Asserting reset\n" << endl;
-	for (i = 0; i < 10; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		clock = 0;
 		sc_start();
@@ -78,7 +75,7 @@ int sc_main(int argc, char* argv[])
 	}
 	reset = 1;    // De-assert the reset
 	cout << "@" << sc_time_stamp() << " De-Asserting reset\n" << endl;
-	for (i = 0; i < 5; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		clock = 0;
 		sc_start();
@@ -90,7 +87,7 @@ int sc_main(int argc, char* argv[])
 	/*----*/
 	cout << "@" << sc_time_stamp() << " Asserting GlucoseLevel\n" << endl;
 	GlucoseLevel = 500;
-	for (i = 0; i<10; i++) {
+	for (int i = 0; i<10; i++) {
 		clock = 0;
 		sc_start();
 		clock = 1;
@@ -98,7 +95,7 @@ int sc_main(int argc, char* argv[])
 	}
 	GlucoseLevel = 10;    // De-assert Glucose Level
 	cout << "@" << sc_time_stamp() << " De-Asserting GlucoseLevel\n" << endl;
-	for (i = 0; i<5; i++) {
+	for (int i = 0; i<5; i++) {
 		clock = 0;
 		sc_start();
 		clock = 1;
