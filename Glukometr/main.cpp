@@ -7,14 +7,12 @@
 
 int sc_main(int argc, char* argv[])
 {
-
-	sc_signal <bool> clock, reset;
+	sc_signal <bool> clock, reset, enable;
 
 	sc_signal <sc_uint<16>> GlucoseLevel;
 
 	//sc_signal <bool> c_up, c_down;
-	sc_signal <bool> enable, clock, reset;
-	sc_signal <sc_uint<16>> GlucoseLevel;
+	sc_signal <sc_uint<16>> _GlucoseLevel;
 	sc_signal <sc_uint<16>> InsulineLevelToInject;
 	
 	sc_signal <sc_uint<8>> input;
@@ -26,12 +24,8 @@ int sc_main(int argc, char* argv[])
 	*/
 
 	Glucometer glk("Glucometer");
+	//counter FirstCounter("Counter");
 
-	counter FirstCounter("Counter");
-	Glucometer glk("Glucometer");
-
-	glk.clock(clock);
-	glk.reset(reset);
 	glk.GlucoseLevel(GlucoseLevel);
 	glk.InsulineLevelToInject(InsulineLevelToInject);
 
@@ -54,6 +48,7 @@ int sc_main(int argc, char* argv[])
 
 	for (i = 0; i < 5; i++)
 	{
+	}
 
 	sc_trace(wf, reset, "reset");
 	sc_trace(wf, enable, "GlucoseLevel");

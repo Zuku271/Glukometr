@@ -28,7 +28,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -71,8 +71,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\systemc-2.3.1a\msvc14\systemc\Debug;C:\systemc-2.3.1a\src;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\systemc-2.3.1a\msvc14\systemc\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\systemc-2.3.1a\msvc15\systemc\Debug;C:\systemc-2.3.1a\src;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\systemc-2.3.1a\msvc15\systemc\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
