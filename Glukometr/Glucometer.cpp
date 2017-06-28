@@ -2,16 +2,31 @@
 #include "Glucometer.h"
 
 
-void Glucometer::CheckGlucoseLevel()
+void Glucometer::GlucometerMain()
 {
-	if (GlucoseLevel.read() >= 120)
+	//reset
+	DispGlucoseLevel.write(0);
+	InsulineLevel.write(0);
+	H_ind.write(0);
+	L_ind.write(0);
+	RunPump.write(0);
+
+	wait();
+	
+	//main
+	while (1)
 	{
-		SignalHighGLevel();
+		if (GlucoseLevel.read() >= 120)
+		{
+			H_ind.write(1);
+		}
+		else if (GlucoseLevel.read() < 80)
+		{
+			L_ind.write(1);
+		}
+		wait();
 	}
-	else if (GlucoseLevel.read() < 80)
-	{
-		SignalLowGLevel();
-	}
+
 }
 
 void Glucometer::SignalHighGLevel()

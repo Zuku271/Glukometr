@@ -19,13 +19,13 @@ SC_MODULE(Glucometer)
 	sc_out <sc_uint<8>> InsulineLevel;
 	sc_out <sc_uint<16>> DispGlucoseLevel;
 
-	void CheckGlucoseLevel();
+	void GlucometerMain();
 	void SignalHighGLevel();
 	void SignalLowGLevel();
 
 	SC_CTOR(Glucometer)
 	{
-		SC_CTHREAD(CheckGlucoseLevel, clock.pos());
+		SC_CTHREAD(GlucometerMain, clock.pos());
 		reset_signal_is(reset, true);
 	}
 };

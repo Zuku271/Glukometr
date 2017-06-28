@@ -1,8 +1,10 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <systemc.h>
 #include <string>
-#include "counter.h"
+#include "SYSTEM.h"
 #include "Glucometer.h"
+
+
 
 
 int sc_main(int argc, char* argv[])
@@ -37,23 +39,19 @@ int sc_main(int argc, char* argv[])
 	
 	// Open VCD file
 	sc_trace_file *wf = sc_create_vcd_trace_file("glucose");
+	wf->set_time_unit(1, SC_SEC);
+	
+	
 	// Dump the desired signals
 	sc_trace(wf, clock, "clock");
-
-	
-
-	// Initialize all variables
-	reset = 1;       // initial value of reset
-	clock = 0;
-	GlucoseLevel = 100;
-
 	sc_trace(wf, reset, "reset");
 	sc_trace(wf, enable, "GlucoseLevel");
 	sc_trace(wf, InsulineLevelToInject, "InsulineLevelToInject");
-
+	
 	// Initialize all variables
 	reset = 1;       // initial value of reset
 	enable = 0;      // initial value of enable
+	clock = 0;
 	GlucoseLevel = 40;
 	InsulineLevelToInject = 10;
 	
@@ -110,3 +108,4 @@ int sc_main(int argc, char* argv[])
 	system("PAUSE");
 	return 0;
 }
+
