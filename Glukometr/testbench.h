@@ -4,6 +4,7 @@
 
 SC_MODULE(TestBench)
 {
+	static int TestCounter;
 	/*
 	Inputs
 	*/

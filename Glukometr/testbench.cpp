@@ -11,7 +11,7 @@ void TestBench::source()
 	wait();
 	reset.write(0);
 
-	sc_uint<16> tmp;
+	sc_uint<16> tmp = 0;
 
 	/*
 	Send
@@ -26,6 +26,7 @@ void TestBench::source()
 		{
 			tmp = 170;
 		}
+		tmp = 10*i;
 		GlucoseLevel.write(tmp);
 		wait();
 	}
@@ -34,16 +35,26 @@ void TestBench::source()
 void TestBench::sink()
 {
 	sc_uint<16> indata;
+	bool HighGLevel;
+	bool LowGLevel;
 
 	/*
 	Read
 	*/
 	for (int i = 0; i < 64; i++)
 	{
-		indata = DispGlucoseLevel.read();
+		indata = GlucoseLevel.read();
+		HighGLevel = H_ind.read();
+		LowGLevel = L_ind.read();
 		wait();
 
-		cout << i << " :\t" << indata.to_int() << endl;
+		cout << i << ":\t" << indata.to_int() << ":\t"
+			<< HighGLevel << ":\t" << LowGLevel
+			<< endl;
 	}
-	sc_stop();
+	TestCounter = TestCounter + 1;
+	if (TestCounter >= 1)
+	{
+		sc_stop();
+	}
 }

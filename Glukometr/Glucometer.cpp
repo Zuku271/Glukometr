@@ -4,14 +4,32 @@
 
 void Glucometer::CheckGlucoseLevel()
 {
-	if (GlucoseLevel.read() >= 120)
+	sc_uint<16> GLevel;
+
+	while (1)
 	{
-		H_ind.write(1);
+		GLevel = GlucoseLevel.read().to_int();
+		if (GLevel >= 120)
+		{
+			H_ind.write(1);
+			L_ind.write(0);
+			RunPump.write(1);
+		}
+		else if (GLevel < 80)
+		{
+			H_ind.write(0);
+			L_ind.write(1);
+			RunPump.write(0);
+		}
+		else
+		{
+			H_ind.write(1);
+			L_ind.write(1);
+			RunPump.write(0);
+		}
+		wait();
 	}
-	else if (GlucoseLevel.read() < 80)
-	{
-		L_ind.write(1);
-	}
+
 }
 
 void Glucometer::SignalHighGLevel()

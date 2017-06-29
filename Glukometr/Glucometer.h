@@ -27,7 +27,7 @@ SC_MODULE(Glucometer)
 
 	SC_CTOR(Glucometer)
 	{
-		SC_CTHREAD(CheckGlucoseLevel, clock.pos());
-		reset_signal_is(reset, true);
+		SC_CTHREAD(CheckGlucoseLevel, clock.neg());
+		//reset_signal_is(reset, true);
 	}
 };
