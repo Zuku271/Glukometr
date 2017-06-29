@@ -4,7 +4,7 @@
 
 void Glucometer::GlucometerMain()
 {
-<<<<<<< HEAD
+
 	//reset
 	DispGlucoseLevel.write(0);
 	InsulineLevel.write(0);
@@ -15,16 +15,6 @@ void Glucometer::GlucometerMain()
 	wait();
 	
 	//main
-	while (1)
-	{
-		if (GlucoseLevel.read() >= 120)
-		{
-			H_ind.write(1);
-		}
-		else if (GlucoseLevel.read() < 80)
-		{
-			L_ind.write(1);
-=======
 	sc_uint<16> GLevel;
 
 	while (1)
@@ -47,7 +37,7 @@ void Glucometer::GlucometerMain()
 			H_ind.write(1);
 			L_ind.write(1);
 			RunPump.write(0);
->>>>>>> beta
+
 		}
 		wait();
 	}

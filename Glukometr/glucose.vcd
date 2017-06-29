@@ -1,9 +1,5 @@
 $date
-<<<<<<< HEAD
-     Jun 28, 2017       23:11:54
-=======
-     Jun 29, 2017       03:24:55
->>>>>>> beta
+     Jun 29, 2017       16:01:34
 $end
 
 $version
@@ -11,7 +7,7 @@ $version
 $end
 
 $timescale
-     1 sec
+     1 ps
 $end
 
 $scope module SystemC $end
@@ -45,7 +41,6 @@ $end
 
 #1
 0aaaaa
-1aaaae
 
 #2
 1aaaaa
@@ -53,6 +48,7 @@ $end
 
 #3
 0aaaaa
+1aaaae
 
 #4
 1aaaaa

@@ -1,12 +1,5 @@
 #pragma once
 #include <systemc.h>
-<<<<<<< HEAD
-/**/
-SC_MODULE(SYSTEM)
-{
-
-};*/
-=======
 #include "Glucometer.h"
 
 SC_MODULE(TestBench)
@@ -37,4 +30,3 @@ SC_MODULE(TestBench)
 		SC_CTHREAD(sink, clock.pos());
 	}
 };
->>>>>>> beta

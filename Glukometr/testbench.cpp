@@ -1,7 +1,4 @@
 #include <systemc.h>
-<<<<<<< HEAD
-
-=======
 #include "testbench.h"
 
 void TestBench::source()
@@ -56,9 +53,5 @@ void TestBench::sink()
 			<< endl;
 	}
 	TestCounter = TestCounter + 1;
-	if (TestCounter >= 1)
-	{
-		sc_stop();
-	}
+	sc_stop();
 }
->>>>>>> beta
