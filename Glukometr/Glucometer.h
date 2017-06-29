@@ -1,3 +1,4 @@
+#pragma once
 #include <systemc.h>
 
 SC_MODULE(Glucometer)
@@ -13,7 +14,8 @@ SC_MODULE(Glucometer)
 	/**
 	* Output
 	*/
-	sc_out <bool> H_ind, L_ind;
+	sc_out <bool> H_ind;
+	sc_out <bool> L_ind;
 	sc_out <bool> RunPump;
 
 	sc_out <sc_uint<8>> InsulineLevel;
@@ -25,7 +27,12 @@ SC_MODULE(Glucometer)
 
 	SC_CTOR(Glucometer)
 	{
+<<<<<<< HEAD
 		SC_CTHREAD(GlucometerMain, clock.pos());
 		reset_signal_is(reset, true);
+=======
+		SC_CTHREAD(CheckGlucoseLevel, clock.neg());
+		//reset_signal_is(reset, true);
+>>>>>>> beta
 	}
 };

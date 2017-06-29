@@ -1,5 +1,9 @@
 $date
+<<<<<<< HEAD
      Jun 28, 2017       23:11:54
+=======
+     Jun 29, 2017       03:24:55
+>>>>>>> beta
 $end
 
 $version
@@ -11,10 +15,15 @@ $timescale
 $end
 
 $scope module SystemC $end
-$var wire    1  aaaaa  clock       $end
-$var wire    1  aaaab  reset       $end
-$var wire    1  aaaac  GlucoseLevel       $end
-$var wire   16  aaaad  InsulineLevelToInject [15:0]  $end
+$var wire    1  aaaaa  clock_sig       $end
+$var wire    1  aaaab  reset_sig       $end
+$var wire    1  aaaac  RunPump_sig       $end
+$var wire    1  aaaad  H_ind_sig       $end
+$var wire    1  aaaae  L_ind_sig       $end
+$var wire   16  aaaaf  GlucoseLevel_sig [15:0]  $end
+$var wire   16  aaaag  InsulineLevelToInject_sig [15:0]  $end
+$var wire   16  aaaah  DispGlucoseLevel_sig [15:0]  $end
+$var wire    8  aaaai  InsulineLevel_sig [7:0]  $end
 $upscope $end
 $enddefinitions  $end
 
@@ -23,218 +32,466 @@ All initial values are dumped below at time 0 sec = 0 timescale units.
 $end
 
 $dumpvars
-0aaaaa
+1aaaaa
 1aaaab
 0aaaac
-b1010 aaaad
+0aaaad
+0aaaae
+b0 aaaaf
+b0 aaaag
+b0 aaaah
+b0 aaaai
 $end
 
-#0
-1aaaaa
-
-#0
+#1
 0aaaaa
+1aaaae
 
-#0
+#2
 1aaaaa
-
-#0
-0aaaaa
-
-#0
-1aaaaa
-
-#0
-0aaaaa
-
-#0
-1aaaaa
-
-#0
-0aaaaa
-
-#0
-1aaaaa
-
-#0
-0aaaaa
 0aaaab
 
-#0
-1aaaaa
-
-#0
+#3
 0aaaaa
 
-#0
+#4
 1aaaaa
+b1010 aaaaf
 
-#0
+#5
 0aaaaa
 
-#0
+#6
 1aaaaa
+b10100 aaaaf
 
-#0
+#7
 0aaaaa
 
-#0
+#8
 1aaaaa
+b11110 aaaaf
 
-#0
+#9
 0aaaaa
 
-#0
+#10
 1aaaaa
+b101000 aaaaf
 
-#0
+#11
 0aaaaa
 
-#0
+#12
 1aaaaa
+b110010 aaaaf
 
-#0
+#13
 0aaaaa
 
-#0
+#14
 1aaaaa
+b111100 aaaaf
 
-#0
+#15
 0aaaaa
 
-#0
+#16
 1aaaaa
+b1000110 aaaaf
 
-#0
+#17
 0aaaaa
 
-#0
+#18
 1aaaaa
+b1010000 aaaaf
 
-#0
+#19
+0aaaaa
+1aaaad
+
+#20
+1aaaaa
+b1011010 aaaaf
+
+#21
 0aaaaa
 
-#0
+#22
 1aaaaa
+b1100100 aaaaf
 
-#0
-0aaaaa
-1aaaab
-
-#0
-1aaaaa
-
-#0
+#23
 0aaaaa
 
-#0
+#24
 1aaaaa
+b1101110 aaaaf
 
-#0
+#25
 0aaaaa
 
-#0
+#26
 1aaaaa
+b1111000 aaaaf
 
-#0
+#27
+0aaaaa
+1aaaac
+0aaaae
+
+#28
+1aaaaa
+b10000010 aaaaf
+
+#29
 0aaaaa
 
-#0
+#30
 1aaaaa
+b10001100 aaaaf
 
-#0
+#31
 0aaaaa
 
-#0
+#32
 1aaaaa
+b10010110 aaaaf
 
-#0
+#33
 0aaaaa
 
-#0
+#34
 1aaaaa
+b10100000 aaaaf
 
-#0
+#35
 0aaaaa
 
-#0
+#36
 1aaaaa
+b10101010 aaaaf
 
-#0
+#37
 0aaaaa
 
-#0
+#38
 1aaaaa
+b10110100 aaaaf
 
-#0
+#39
 0aaaaa
 
-#0
+#40
 1aaaaa
+b10111110 aaaaf
 
-#0
+#41
 0aaaaa
 
-#0
+#42
 1aaaaa
+b11001000 aaaaf
 
-#0
+#43
 0aaaaa
 
-#0
+#44
 1aaaaa
+b11010010 aaaaf
 
-#0
+#45
 0aaaaa
 
-#0
+#46
 1aaaaa
+b11011100 aaaaf
 
-#0
+#47
 0aaaaa
 
-#0
+#48
 1aaaaa
+b11100110 aaaaf
 
-#0
+#49
 0aaaaa
 
-#0
+#50
 1aaaaa
+b11110000 aaaaf
 
-#0
+#51
 0aaaaa
 
-#0
+#52
 1aaaaa
+b11111010 aaaaf
 
-#0
+#53
 0aaaaa
 
-#0
+#54
 1aaaaa
+b100000100 aaaaf
 
-#0
+#55
 0aaaaa
 
-#0
+#56
 1aaaaa
+b100001110 aaaaf
 
-#0
+#57
 0aaaaa
 
-#0
+#58
 1aaaaa
+b100011000 aaaaf
 
-#0
+#59
 0aaaaa
 
-#0
+#60
 1aaaaa
+b100100010 aaaaf
 
-#0
+#61
 0aaaaa
 
-#0
+#62
 1aaaaa
+b100101100 aaaaf
+
+#63
+0aaaaa
+
+#64
+1aaaaa
+b100110110 aaaaf
+
+#65
+0aaaaa
+
+#66
+1aaaaa
+b101000000 aaaaf
+
+#67
+0aaaaa
+
+#68
+1aaaaa
+b101001010 aaaaf
+
+#69
+0aaaaa
+
+#70
+1aaaaa
+b101010100 aaaaf
+
+#71
+0aaaaa
+
+#72
+1aaaaa
+b101011110 aaaaf
+
+#73
+0aaaaa
+
+#74
+1aaaaa
+b101101000 aaaaf
+
+#75
+0aaaaa
+
+#76
+1aaaaa
+b101110010 aaaaf
+
+#77
+0aaaaa
+
+#78
+1aaaaa
+b101111100 aaaaf
+
+#79
+0aaaaa
+
+#80
+1aaaaa
+b110000110 aaaaf
+
+#81
+0aaaaa
+
+#82
+1aaaaa
+b110010000 aaaaf
+
+#83
+0aaaaa
+
+#84
+1aaaaa
+b110011010 aaaaf
+
+#85
+0aaaaa
+
+#86
+1aaaaa
+b110100100 aaaaf
+
+#87
+0aaaaa
+
+#88
+1aaaaa
+b110101110 aaaaf
+
+#89
+0aaaaa
+
+#90
+1aaaaa
+b110111000 aaaaf
+
+#91
+0aaaaa
+
+#92
+1aaaaa
+b111000010 aaaaf
+
+#93
+0aaaaa
+
+#94
+1aaaaa
+b111001100 aaaaf
+
+#95
+0aaaaa
+
+#96
+1aaaaa
+b111010110 aaaaf
+
+#97
+0aaaaa
+
+#98
+1aaaaa
+b111100000 aaaaf
+
+#99
+0aaaaa
+
+#100
+1aaaaa
+b111101010 aaaaf
+
+#101
+0aaaaa
+
+#102
+1aaaaa
+b111110100 aaaaf
+
+#103
+0aaaaa
+
+#104
+1aaaaa
+b111111110 aaaaf
+
+#105
+0aaaaa
+
+#106
+1aaaaa
+b1000001000 aaaaf
+
+#107
+0aaaaa
+
+#108
+1aaaaa
+b1000010010 aaaaf
+
+#109
+0aaaaa
+
+#110
+1aaaaa
+b1000011100 aaaaf
+
+#111
+0aaaaa
+
+#112
+1aaaaa
+b1000100110 aaaaf
+
+#113
+0aaaaa
+
+#114
+1aaaaa
+b1000110000 aaaaf
+
+#115
+0aaaaa
+
+#116
+1aaaaa
+b1000111010 aaaaf
+
+#117
+0aaaaa
+
+#118
+1aaaaa
+b1001000100 aaaaf
+
+#119
+0aaaaa
+
+#120
+1aaaaa
+b1001001110 aaaaf
+
+#121
+0aaaaa
+
+#122
+1aaaaa
+b1001011000 aaaaf
+
+#123
+0aaaaa
+
+#124
+1aaaaa
+b1001100010 aaaaf
+
+#125
+0aaaaa
+
+#126
+1aaaaa
+b1001101100 aaaaf
+
+#127
+0aaaaa
+
+#128
+1aaaaa
+b1001110110 aaaaf
 

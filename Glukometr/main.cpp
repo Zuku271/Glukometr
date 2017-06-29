@@ -4,6 +4,7 @@
 #include "SYSTEM.h"
 #include "Glucometer.h"
 
+<<<<<<< HEAD
 
 
 
@@ -101,10 +102,15 @@ int sc_main(int argc, char* argv[])
 	}
 	/*----*/
 
+=======
+SYSTEM *top = NULL;
+int TestBench::TestCounter = 0;
+int sc_main(int argc, char* argv[])
+{
+	top = new SYSTEM("top");
+	sc_start();
+>>>>>>> beta
 
-	cout << "@" << sc_time_stamp() << " Terminating simulation\n" << endl;
-	sc_close_vcd_trace_file(wf);
-	
 	system("PAUSE");
 	return 0;
 }

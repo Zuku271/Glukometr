@@ -19,11 +19,26 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Glucometer.cpp">
+<<<<<<< HEAD
+=======
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="testbench.cpp">
+>>>>>>> beta
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Glucometer.h">
+<<<<<<< HEAD
+=======
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testbench.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SYSTEM.h">
+>>>>>>> beta
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
