@@ -18,18 +18,21 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="counter.cpp">
+    <ClCompile Include="Glucometer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Glucometer.cpp">
+    <ClCompile Include="testbench.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="counter.h">
+    <ClInclude Include="Glucometer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Glucometer.h">
+    <ClInclude Include="testbench.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SYSTEM.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,46 +1,19 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <systemc.h>
 #include <string>
-#include "counter.h"
+#include "SYSTEM.h"
 #include "Glucometer.h"
 
-
+SYSTEM *top = NULL;
 int sc_main(int argc, char* argv[])
 {
-	sc_signal <bool> clock, reset, enable;
-	sc_signal <bool> H_ind, L_ind;
-	sc_signal <bool> RunPump;
-
-	sc_signal <sc_uint<16>> GlucoseLevel;
-	sc_signal <sc_uint<16>> InsulineLevelToInject;
-	sc_signal <sc_uint<16>> DispGlucoseLevel;
-	
-	sc_signal <sc_uint<8>> InsulineLevel;
-
-
-	/**
-	* Connect to DUT
-	*/
-
-	Glucometer glk("Glucometer");
-
-	glk.GlucoseLevel(GlucoseLevel);
-	glk.InsulineLevelToInject(InsulineLevelToInject);
-	glk.clock(clock);
-	glk.reset(reset);
-	glk.H_ind(H_ind);
-	glk.L_ind(L_ind);
-	glk.RunPump(RunPump);
-	glk.DispGlucoseLevel(DispGlucoseLevel);
-	glk.InsulineLevel(InsulineLevel);
-
-	
+	top = new SYSTEM("top");
+	sc_start();
+	/*
 	// Open VCD file
 	sc_trace_file *wf = sc_create_vcd_trace_file("glucose");
 	// Dump the desired signals
 	sc_trace(wf, clock, "clock");
-
-	
 
 	// Initialize all variables
 	reset = 1;       // initial value of reset
@@ -84,7 +57,7 @@ int sc_main(int argc, char* argv[])
 	}
 
 
-	/*----*/
+	
 	cout << "@" << sc_time_stamp() << " Asserting GlucoseLevel\n" << endl;
 	GlucoseLevel = 500;
 	for (int i = 0; i<10; i++) {
@@ -101,12 +74,12 @@ int sc_main(int argc, char* argv[])
 		clock = 1;
 		sc_start();
 	}
-	/*----*/
+	
 
 
 	cout << "@" << sc_time_stamp() << " Terminating simulation\n" << endl;
 	sc_close_vcd_trace_file(wf);
-	
+	*/
 	system("PAUSE");
 	return 0;
 }

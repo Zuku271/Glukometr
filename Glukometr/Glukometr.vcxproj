@@ -161,13 +161,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="counter.cpp" />
     <ClCompile Include="Glucometer.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="testbench.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="counter.h" />
     <ClInclude Include="Glucometer.h" />
+    <ClInclude Include="SYSTEM.h" />
+    <ClInclude Include="testbench.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
