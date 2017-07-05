@@ -25,7 +25,7 @@ SC_MODULE(SYSTEM)
 
 	sc_signal <sc_uint<8>> InsulineLevel_sig;
 
-	SC_CTOR(SYSTEM) : clock_sig("clock_sig", 2, SC_PS)
+	SC_CTOR(SYSTEM) : clock_sig("clock_sig", 2, SC_MS)
 	{
 		tb = new TestBench("tb");
 		

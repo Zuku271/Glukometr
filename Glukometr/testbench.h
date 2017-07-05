@@ -1,6 +1,7 @@
 #pragma once
 #include <systemc.h>
 #include "Glucometer.h"
+#include <ctime>
 
 SC_MODULE(TestBench)
 {
@@ -27,6 +28,7 @@ SC_MODULE(TestBench)
 	SC_CTOR(TestBench)
 	{
 		SC_CTHREAD(source, clock.pos());
-		SC_CTHREAD(sink, clock.pos());
+		SC_CTHREAD(sink, clock.neg());
+		//srand(time(NULL));
 	}
 };

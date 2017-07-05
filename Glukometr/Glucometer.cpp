@@ -34,8 +34,8 @@ void Glucometer::GlucometerMain()
 		}
 		else
 		{
-			H_ind.write(1);
-			L_ind.write(1);
+			H_ind.write(0);
+			L_ind.write(0);
 			RunPump.write(0);
 
 		}
